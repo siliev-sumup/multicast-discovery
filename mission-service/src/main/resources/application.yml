@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: mission-service
+  datasource:
+    url: jdbc:mysql://mission-db:3306/missions?useUnicode=true&characterEncoding=utf-8
+    username: "root"
+    password: "root"
+  liquibase:
+    change-log: classpath:liquibase-changeLog.xml
+  jpa:
+    hibernate:
+      ddl-auto: update
+management:
+  endpoint:
+    health:
+      enabled: true

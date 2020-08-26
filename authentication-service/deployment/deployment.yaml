@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: auth
+  name: auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: auth
+    spec:
+      containers:
+      - image: registry.gitlab.com/simeon.iliev/nummi/authentication-service:latest
+        name: authentication-service
+        imagePullPolicy: Always
+        resources: {}
+      imagePullSecrets:
+        - name: regcred
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: auth
+  name: auth
+spec:
+  ports:
+  - name: stage
+    port: 8080
+    protocol: TCP
+  selector:
+    app: auth
+  type: ClusterIP
+status:
+  loadBalancer: {}
