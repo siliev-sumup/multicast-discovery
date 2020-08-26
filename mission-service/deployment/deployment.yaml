@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: search
+  name: search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: search
+    spec:
+      containers:
+      - image: registry.gitlab.com/simeon.iliev/nummi/search-service:latest
+        name: search-service
+        imagePullPolicy: Always
+        resources: {}
+      imagePullSecrets:
+        - name: regcred
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: search
+  name: search
+spec:
+  ports:
+  - name: stage
+    port: 8080
+    protocol: TCP
+  selector:
+    app: search
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,45 @@
+stages:
+  - build
+  - test
+  - deploy
+
+image: openjdk:13-jdk-alpine
+
+variables:
+  AUTH_CONTAINER_IMAGE: forthset/authentication-service:latest
+  GATEWAY_CONTAINER_IMAGE: forthset/gateway-service:latest
+  SEARCH_CONTAINER_IMAGE: forthset/search-service:latest
+  MISSION_CONTAINER_IMAGE: forthset/mission-service:latest
+  PROFILE: stage
+
+before_script:
+  - docker info
+  - echo Using profile $PROFILE
+
+build:
+  stage: build
+  script:
+    - ./mvnw clean package -Denv.profile=${PROFILE}
+
+test:
+  stage: test
+  script:
+    - echo "Integration tests placeholder"
+
+deploy:
+  stage: deploy
+  script:
+    - echo ${IMAGE_REPO_USER}, ${IMAGE_REPO_PASSWORD}
+    - docker login -u ${IMAGE_REPO_USER} -p ${IMAGE_REPO_PASSWORD} registry.gitlab.com
+    - docker tag ${AUTH_CONTAINER_IMAGE} registry.gitlab.com/simeon.iliev/${AUTH_CONTAINER_IMAGE}
+    - docker push registry.gitlab.com/simeon.iliev/${AUTH_CONTAINER_IMAGE}
+    - docker tag ${GATEWAY_CONTAINER_IMAGE} registry.gitlab.com/simeon.iliev/${GATEWAY_CONTAINER_IMAGE}
+    - docker push registry.gitlab.com/simeon.iliev/${GATEWAY_CONTAINER_IMAGE}
+    - docker tag ${SEARCH_CONTAINER_IMAGE} registry.gitlab.com/simeon.iliev/${SEARCH_CONTAINER_IMAGE}
+    - docker push registry.gitlab.com/simeon.iliev/${SEARCH_CONTAINER_IMAGE}
+    - docker tag ${MISSION_CONTAINER_IMAGE} registry.gitlab.com/simeon.iliev/${MISSION_CONTAINER_IMAGE}
+    - docker push registry.gitlab.com/simeon.iliev/${MISSION_CONTAINER_IMAGE}
+    - kubectl apply -f ./authentication-service/deployment/deployment.yaml
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: on_success

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: authentication-service
+  datasource:
+    url: jdbc:mysql://auth-db:3306/auth?useUnicode=true&characterEncoding=utf-8
+    username: "root"
+    password: "root"
+  liquibase:
+    change-log: classpath:liquibase-changeLog.xml
+  jpa:
+    hibernate:
+      ddl-auto: update
+security:
+  jwt:
+    token:
+      secret-key: FZsE1uqJV7iTn3fq1ZVGM8Kv1RGJQfbqW2P
+management:
+  endpoint:
+    health:
+      enabled: true
+
