@@ -6,10 +6,10 @@ stages:
 image: openjdk:13-jdk-alpine
 
 variables:
-  AUTH_CONTAINER_IMAGE: forthset/authentication-service:latest
-  GATEWAY_CONTAINER_IMAGE: forthset/gateway-service:latest
-  SEARCH_CONTAINER_IMAGE: forthset/search-service:latest
-  MISSION_CONTAINER_IMAGE: forthset/mission-service:latest
+  AUTH_CONTAINER_IMAGE: nummi/authentication-service:latest
+  GATEWAY_CONTAINER_IMAGE: nummi/gateway-service:latest
+  SEARCH_CONTAINER_IMAGE: nummi/search-service:latest
+  MISSION_CONTAINER_IMAGE: nummi/mission-service:latest
   PROFILE: stage
 
 before_script:
