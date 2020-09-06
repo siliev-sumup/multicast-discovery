@@ -39,6 +39,7 @@ deploy:
     - docker push registry.gitlab.com/simeon.iliev/${SEARCH_CONTAINER_IMAGE}
     - docker tag ${MISSION_CONTAINER_IMAGE} registry.gitlab.com/simeon.iliev/${MISSION_CONTAINER_IMAGE}
     - docker push registry.gitlab.com/simeon.iliev/${MISSION_CONTAINER_IMAGE}
+    - kubectl get all
     - kubectl apply -f ./authentication-service/deployment/deployment.yaml
     - kubectl apply -f ./gateway-service/deployment/deployment.yaml
     - kubectl apply -f ./mission-service/deployment/deployment.yaml
