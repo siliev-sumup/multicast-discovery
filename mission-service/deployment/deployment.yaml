@@ -32,8 +32,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: search
-  name: search
+    app: mission
+  name: mission
 spec:
   ports:
   - name: stage
