@@ -2,7 +2,7 @@ spring:
   application:
     name: authentication-service
   datasource:
-    url: jdbc:mysql://nummi-dev.cw6cq2c0smyw.eu-central-1.rds.amazonaws.com:3306/auth?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://nummi-dev.cw6cq2c0smyw.eu-central-1.rds.amazonaws.com:3306/nummi?useUnicode=true&characterEncoding=utf-8
     username: root
     password: nuMm1izd4best3sty0_^
   jpa:
