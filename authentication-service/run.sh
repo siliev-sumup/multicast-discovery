@@ -5,14 +5,16 @@ export DB_PORT=3306
 
 echo "Starting with profile $PROFILE"
 
-until nc -z $DB_HOST "$DB_PORT"
-do
-    echo "********************************************************"
-    echo "Waiting for Auth DB $DB_PORT"
-    echo "********************************************************"
-    sleep 5;
-done
-echo "******* Auth DB has started"
+if [ ! "$PROFILE" = "stage" ]; then
+    until nc -z $DB_HOST "$DB_PORT"
+    do
+        echo "********************************************************"
+        echo "Waiting for Auth DB $DB_PORT"
+        echo "********************************************************"
+        sleep 5;
+    done
+    echo "******* Auth DB has started"
+fi
 
 echo "********************************************************"
 echo "Starting Authentication Service"

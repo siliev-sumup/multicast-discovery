@@ -5,15 +5,16 @@ export DB_PORT=3306
 
 echo "Starting with profile $PROFILE"
 
-until nc -z $DB_HOST "$DB_PORT"
-do
-    ping $DB_HOST
-    echo "********************************************************"
-    echo "Waiting for DB $DB_HOST $DB_PORT"
-    echo "********************************************************"
-    sleep 5;
-done
-echo "******* DB has started"
+if [ ! "$PROFILE" = "stage" ]; then
+    until nc -z $DB_HOST "$DB_PORT"
+    do
+        echo "********************************************************"
+        echo "Waiting for DB on $DB_PORT"
+        echo "********************************************************"
+        sleep 5;
+    done
+    echo "******* DB has started"
+fi
 
 echo "********************************************************"
 echo "Starting Mission Service"
