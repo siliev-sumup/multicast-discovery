@@ -39,11 +39,13 @@ deploy:
     - docker push registry.gitlab.com/simeon.iliev/${SEARCH_CONTAINER_IMAGE}
     - docker tag ${MISSION_CONTAINER_IMAGE} registry.gitlab.com/simeon.iliev/${MISSION_CONTAINER_IMAGE}
     - docker push registry.gitlab.com/simeon.iliev/${MISSION_CONTAINER_IMAGE}
+    - whoami
     - kubectl get all
     - kubectl apply -f ./authentication-service/deployment/deployment.yaml
     - kubectl apply -f ./gateway-service/deployment/deployment.yaml
     - kubectl apply -f ./mission-service/deployment/deployment.yaml
     - kubectl apply -f ./search-service/deployment/deployment.yaml
+    - docker system prune -af
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
       when: on_success
