@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export DB_HOST=mission-db
+export DB_HOST=nummi-db
 export DB_PORT=3306
 
 echo "Starting with profile $PROFILE"

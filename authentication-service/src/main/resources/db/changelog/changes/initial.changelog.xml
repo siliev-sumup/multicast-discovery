@@ -11,7 +11,7 @@
         <tableExists tableName="users"/>
       </not>
     </preConditions>
-    <createTable catalogName="auth"
+    <createTable catalogName="nummi"
       schemaName="public"
       tableName="users">
       <column name="email" type="varchar(255)">

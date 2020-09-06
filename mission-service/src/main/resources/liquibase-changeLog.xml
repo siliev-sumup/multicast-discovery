@@ -12,7 +12,7 @@
                 <tableExists tableName="missions"/>
             </not>
         </preConditions>
-        <createTable catalogName="missions"
+        <createTable catalogName="nummi"
                      schemaName="public"
                      tableName="missions">
             <column name="id" type="INT">
