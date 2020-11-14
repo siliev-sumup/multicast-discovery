@@ -6,7 +6,7 @@ metadata:
     app: mission
   name: mission
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: mission

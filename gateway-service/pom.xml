@@ -17,7 +17,7 @@
     </parent>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>13</java.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <docker.image.name>${parent.artifactId}/${project.artifactId}</docker.image.name>
         <docker.image.tag>latest</docker.image.tag>
@@ -44,6 +44,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

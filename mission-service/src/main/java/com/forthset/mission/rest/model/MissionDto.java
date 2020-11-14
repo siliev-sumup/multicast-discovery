@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.NotNull;
@@ -15,11 +16,12 @@ import java.util.Date;
 public class MissionDto {
 
     @NotNull
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
 
     @NotNull
     @Size(max = 256)
-    private String title;
+    private String name;
 
     @NotNull
     @Size(max = 4096)
@@ -31,6 +33,21 @@ public class MissionDto {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String imageUrl;
+
+    // TODO
+    // poster user avatar
+
+    // TODO
+    // poster rating
+
+    // TODO
+    // poster votes amount
+
+    // TODO
+    // price
+
+    // TODO
+    // isBookmarked
 
     @Nullable
     private Long duration;

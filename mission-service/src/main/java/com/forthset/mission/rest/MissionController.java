@@ -36,7 +36,7 @@ public class MissionController {
 
     final MissionDto mockMission1 = new MissionDto();
     mockMission1.setId(1L);
-    mockMission1.setTitle("Clean my house");
+    mockMission1.setName("Clean my house");
     mockMission1.setDescription("I need someone to clean my house.");
     mockMission1.setDate(Date.from(ZonedDateTime.of(
             2020,
@@ -51,7 +51,7 @@ public class MissionController {
 
     final MissionDto mockMission2 = new MissionDto();
     mockMission2.setId(2L);
-    mockMission2.setTitle("Feed my cats for two days");
+    mockMission2.setName("Feed my cats for two days");
     mockMission2.setDescription("I need someone to feed my cats at my house every day for a week.\n" +
             "Food provided in the apartment.");
     mockMission1.setDate(Date.from(ZonedDateTime.of(
