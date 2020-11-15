@@ -16,7 +16,7 @@ import java.util.Date;
 public class MissionDto {
 
     @NotNull
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     @NotNull
@@ -32,22 +32,25 @@ public class MissionDto {
     private Date date;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private String imageUrl;
+    private String thumbnailUrl;
 
-    // TODO
-    // poster user avatar
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String posterAvatarUrl;
 
-    // TODO
-    // poster rating
+    @NotNull
+    private Integer posterRating;
 
-    // TODO
-    // poster votes amount
+    @NotNull
+    private Integer votes;
 
-    // TODO
-    // price
+    @NotNull
+    private String currency;
 
-    // TODO
-    // isBookmarked
+    @NotNull
+    private Integer price;
+
+    @Nullable
+    private Boolean isBookmarked;
 
     @Nullable
     private Long duration;

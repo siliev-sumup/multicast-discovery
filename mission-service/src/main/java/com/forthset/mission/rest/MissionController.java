@@ -47,7 +47,12 @@ public class MissionController {
             0 ,
             0,
             ZoneId.of(ZoneId.SHORT_IDS.get("ECT"))).toInstant()));
-    mockMission1.setImageUrl("https://thumbs.dreamstime.com/z/young-woman-skimpy-bikini-posing-beach-bikini-girl-beach-124133138.jpg");
+    mockMission1.setThumbnailUrl("https://thumbs.dreamstime.com/z/young-woman-skimpy-bikini-posing-beach-bikini-girl-beach-124133138.jpg");
+    mockMission1.setPosterAvatarUrl("https://static2.srcdn.com/wordpress/wp-content/uploads/2020/05/Avatars-pic-vertical.jpg?q=50&fit=crop&w=675&h=771&dpr=1.5");
+    mockMission1.setPosterRating(5);
+    mockMission1.setVotes(1324);
+    mockMission1.setCurrency("EUR");
+    mockMission1.setPrice(5000);
 
     final MissionDto mockMission2 = new MissionDto();
     mockMission2.setId(2L);
@@ -63,7 +68,12 @@ public class MissionController {
             0 ,
             0,
             ZoneId.of(ZoneId.SHORT_IDS.get("ECT"))).toInstant()));
-    mockMission2.setImageUrl("https://images.ams.bg/images/galleries/188516/tova-e-honda-civic-type-r-limited-edition-1582207309_big.jpg");
+    mockMission2.setThumbnailUrl("https://images.ams.bg/images/galleries/188516/tova-e-honda-civic-type-r-limited-edition-1582207309_big.jpg");
+    mockMission1.setPosterAvatarUrl("https://static.toiimg.com/photo/msid-5348868/5348868.jpg?26276");
+    mockMission1.setPosterRating(4);
+    mockMission1.setVotes(132);
+    mockMission1.setCurrency("EUR");
+    mockMission1.setPrice(1000);
 
     return ResponseEntity.ok(new Dto<List<MissionDto>, Void>(List.of(
             mockMission1, mockMission2
