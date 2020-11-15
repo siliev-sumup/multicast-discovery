@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @Api("Mission")
-@RequestMapping("/missions")
+@RequestMapping("v0.1/missions")
 public class MissionController {
 
   private MissionService missionService;
@@ -31,7 +31,14 @@ public class MissionController {
   }
 
   @GetMapping
-  public ResponseEntity<Dto<List<MissionDto>, ?>> page(@PathParam("pageNum") Integer pageNum, @PathParam("pageSize") Integer pageSize) {
+  public ResponseEntity<Dto<List<MissionDto>, ?>> get(
+          @RequestParam("pageNum") Integer pageNum,
+          @RequestParam("pageSize") Integer pageSize,
+          @RequestParam(value = "remote", required = false, defaultValue = "false") Boolean isRemote,
+          @RequestParam(value = "recurring", required = false, defaultValue = "false") Boolean isRecurring,
+          @RequestParam(value = "minPrice", required = false, defaultValue = "0") Integer minPrice,
+          @RequestParam(value = "currency", required = false, defaultValue = "EUR") String currency
+  ) {
     // TODO remove mock
 
     final MissionDto mockMission1 = new MissionDto();
