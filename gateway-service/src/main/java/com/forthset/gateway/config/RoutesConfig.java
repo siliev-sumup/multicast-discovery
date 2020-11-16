@@ -16,10 +16,10 @@ public class RoutesConfig {
                 // auth
                 // missions
                 .route("get_missions", r -> r.path("/missions")
-                        .uri("http://mission:8080/missions"))
+                        .uri("http://mission:8080/v0.1/missions"))
                 // search
                 .route("search", r -> r.path("/search")
-                        .uri("http://search:8080/search"))
+                        .uri("http://search:8080/v0.1/search"))
                 .build();
     }
 
@@ -28,9 +28,12 @@ public class RoutesConfig {
     public RouteLocator stageRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 // auth
+                // missions
+                .route("get_missions", r -> r.path("/missions")
+                        .uri("http://mission:8080/v0.1/missions"))
                 // search
                 .route("search", r -> r.path("/search")
-                        .uri("http://search:8080/search"))
+                        .uri("http://search:8080/v0.1/search"))
                 .build();
     }
 }
