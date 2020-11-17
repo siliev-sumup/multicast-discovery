@@ -37,6 +37,7 @@ public class MissionController {
           @RequestParam(value = "remote", required = false, defaultValue = "false") Boolean isRemote,
           @RequestParam(value = "recurring", required = false, defaultValue = "false") Boolean isRecurring,
           @RequestParam(value = "minPrice", required = false, defaultValue = "0") Integer minPrice,
+          @RequestParam(value = "maxPrice", required = false, defaultValue = "50000") Integer maxPrice,
           @RequestParam(value = "currency", required = false, defaultValue = "EUR") String currency
   ) {
     // TODO remove mock

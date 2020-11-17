@@ -25,7 +25,7 @@ public class SearchController {
   }
 
   @PostMapping
-  public ResponseEntity<Dto<List<MissionDto>, ?>> missions(@RequestBody SearchRequest searchRequest) {
+  public ResponseEntity<Dto<List<MissionDto>, ?>> search(@RequestBody SearchRequest searchRequest) {
 
     final MissionDto mockMission1 = new MissionDto();
     mockMission1.setId(1L);
