@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://nummi-dev.cw6cq2c0smyw.eu-central-1.rds.amazonaws.com:3306/nummi?useUnicode=true&characterEncoding=utf-8
+    username: "root"
+    password: "nuMm1izd4best3sty0_^"
