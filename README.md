@@ -9,7 +9,7 @@ On the highest level "modern" microservice architectures generally have two ways
 2. Have a separate discovery service that other services in the cluster register to when joining the cluster
 
 There is a third approach that a subset of services use however - UDP multicast discovery.
-The basic idea behind it is to multicast a message to a multicast address, which all services in a cluster are subscribed to, containing all data required for other services to discover and make requests to a new joiner. 
+The basic idea behind it is to multicast a message to a multicast address, to which all services in a cluster are subscribed, containing all data required for other services to discover and make requests to a new joiner. 
 Currently the only example I know of this approach is [Hazelcast](https://hazelcast.com/)'s [default discovery mechanism](https://docs.hazelcast.com/imdg/latest/clusters/discovering-by-multicast.html).
 
 ### Advantages
