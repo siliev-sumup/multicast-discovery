@@ -4,9 +4,10 @@ The intent of this project is to attempt to show a novel idea for a universal UD
 
 ### Problem Stament
 
-On the highest level "modern" microservice architectures generally have two ways of implementing service discovery:
+On the highest level "modern" microservice architectures generally have three ways of implementing service discovery:
 1. Have a key-value store keeping service_name->service_host mappings
 2. Have a separate discovery service that other services in the cluster register to when joining the cluster
+3. By convention - all cluster members get an address assigned, based on service name (default base `docker-compose`, `k8s`)
 
 There is a third approach that a subset of services use however - [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) [multicast](https://en.wikipedia.org/wiki/Multicast) discovery.
 The basic idea behind it is to multicast a message to a multicast address, to which all services in a cluster are subscribed, containing all data required for other services to discover and make requests to a new joiner. 
