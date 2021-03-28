@@ -6,7 +6,7 @@ The intent of this project is to attempt to show a novel idea for a universal UD
 
 On the highest level "modern" microservice architectures generally have two ways of implementing service discovery:
 1. Have a key-value store keeping service_name->service_host mappings
-2. Have a separate discovery services that other services in the cluster register to when joining the cluster
+2. Have a separate discovery service that other services in the cluster register to when joining the cluster
 
 There is a third approach that a subset of services use however - UDP multicast discovery.
 The basic idea behind it is to multicast a message to a multicast address, which all services in a cluster are subscribed to, containing all data required for other services to discover and make requests to a new joiner. 
