@@ -22,7 +22,7 @@ When having a common place to store service_name->address mappings, this place b
 
 ### Disadvantages
 
-#### ???
+#### ??? opinions here greatly appreciated :)
 
 ### PoC Details
 The current implemantation deployes two Spring services in a `docker-compose` network with enabled UDP. When started each service multicasts a `join` message containing the service name and anddress to a common multicast address. Every service subscribed to the address "hears" the message and adds the new joiner to its own in-memory storage of known cluster members.
