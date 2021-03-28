@@ -47,3 +47,7 @@ The bellow examples assume PoC is running on localhost.
 `GET http://localhost:8081/v0.1/ping` - pings the service, returns `200` if everything is running ok
 
 `GET http://localhost:8081/v0.1/ping/all`- pings (calls the endpoint described above of) all services discovered by this service via listening for UDP `join` messages on a multicast address
+
+### Disclaimer
+
+I literally wrote this in 4 hours, just to test whether it will work, so I won't be taking any comments on code quality :D Anyone is free and very welcome to open a PR and fix anything. Thanks for reading up to here!
