@@ -45,4 +45,5 @@ PoC consist of two services, `one-service` and `two-service` each exposing the s
 The bellow examples assume PoC is running on localhost.
 
 `GET http://localhost:8081/v0.1/ping` - pings the service, returns `200` if everything is running ok
+
 `GET http://localhost:8081/v0.1/ping/all`- pings (calls the endpoint described above of) all services discovered by this service via listening for UDP `join` messages on a multicast address
