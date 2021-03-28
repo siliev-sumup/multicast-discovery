@@ -1,8 +1,8 @@
-#### Intent
+### Intent
 
 The intent of this project is to attempt to show a novel idea for a universal UDP based, efficient service discovery mechanism, not dependent on deployment infrastructure and usable anywhere.
 
-#### Problem Stament
+### Problem Stament
 
 On the highest level "modern" microservice architectures generally have two ways of implementing service discovery:
 1. Have a key-value store keeping service_name->service_host mappings
@@ -12,35 +12,35 @@ There is a third approach that a subset of services use however - UDP multicast 
 The basic idea behind it is to multicast a message to a multicast address, which all services in a cluster are subscribed to, containing all data required for other services to discover and make requests to a new joiner. 
 Currently the only example I know of this approach is [Hazelcast](https://hazelcast.com/)'s [default discovery mechanism](https://docs.hazelcast.com/imdg/latest/clusters/discovering-by-multicast.html).
 
-#### Advantages
+### Advantages
 
-##### Members in the cluster fully own their addresses
+#### Members in the cluster fully own their addresses
 When having a common place to store service_name->address mappings, this place becomes a friction point for all teams. Conventions/responsible people/maintainance becomes harder.
 
-##### No additinal services to maintain
+#### No additinal services to maintain
 [Eureka](https://github.com/Netflix/eureka) for example, although mature and widely used, adds complexity (polling strategies to consider, scaling to consider, can be a single point of failure) and time has to be spend on upgrades and maintenance.
 
-#### Disadvantages
+### Disadvantages
 
-##### ???
+#### ???
 
-#### PoC Details
+### PoC Details
 The current implemantation deployes two Spring services in a `docker-compose` network with enabled UDP. When started each service multicasts a `join` message containing the service name and anddress to a common multicast address. Every service subscribed to the address "hears" the message and adds the new joiner to its own in-memory storage of known cluster members.
 
 PoC consist of two services, `one-service` and `two-service` each exposing the same endpoits (listed bellow).
 
-#### Running the PoC
+### Running the PoC
 
-##### Requirements
+#### Requirements
 [JDK 13](https://jdk.java.net/13/), [Docker](https://docs.docker.com/get-docker/)
 
-##### Build
+#### Build
 `./mvnw clean install`
 
-##### Run
+#### Run
 `docker-compose up`
 
-#### Endpoints
+### Endpoints
 
 The bellow examples assume PoC is running on localhost.
 
