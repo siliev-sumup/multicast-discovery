@@ -9,7 +9,7 @@ On the highest level "modern" microservice architectures generally have three wa
 2. Have a separate discovery service that other services in the cluster register to when joining the cluster
 3. By convention - all cluster members get an address assigned, based on service name (default base `docker-compose`, `k8s`)
 
-There is a third approach that a subset of services use however - [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) [multicast](https://en.wikipedia.org/wiki/Multicast) discovery.
+There is another approach that a subset of services use however - [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) [multicast](https://en.wikipedia.org/wiki/Multicast) discovery.
 The basic idea behind it is to multicast a message to a multicast address, to which all services in a cluster are subscribed, containing all data required for other services to discover and make requests to a new joiner. 
 Currently the only example I know of this approach is [Hazelcast](https://hazelcast.com/)'s [default discovery mechanism](https://docs.hazelcast.com/imdg/latest/clusters/discovering-by-multicast.html).
 
