@@ -13,10 +13,3 @@ services:
       - '8082:8080'
     environment:
       - PROFILE=dev
-volumes:
-  zookeeper_data:
-    driver: local
-  kafka_data:
-    driver: local
-  nummi_data:
-    driver: local
